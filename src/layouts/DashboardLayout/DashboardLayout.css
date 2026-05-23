@@ -1,0 +1,63 @@
+/* 后台外壳：控制左侧菜单、顶部栏和内容区。 */
+.dashboard-layout {
+  min-height: 100svh;
+  background: #f5f7fb;
+}
+
+/* 左侧菜单：控制侧边栏边框和背景色。 */
+.dashboard-layout__sider {
+  border-right: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+/* Logo 区域：控制 logo 所在顶部区域的高度、居中和内边距。 */
+.dashboard-layout__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  padding: 12px 16px;
+}
+
+/* Logo 图片：控制图片宽度、高度上限和等比例缩放。 */
+.dashboard-layout__brand-logo {
+  display: block;
+  width: 400px;
+  max-width: 200%;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+/* 折叠菜单时的 Logo：控制侧边栏收起后的 logo 大小。 */
+.dashboard-layout__brand-logo--collapsed {
+  width: 0;
+  max-height: 0;
+}
+
+/* 顶部栏：控制折叠菜单按钮和用户信息区域。 */
+.dashboard-layout__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+/* 用户入口：右上角头像和用户名。 */
+.dashboard-layout__user {
+  cursor: pointer;
+}
+
+/* 内容区：控制页面主体和边缘的距离。 */
+.dashboard-layout__content {
+  padding: 24px;
+}
+
+/* 手机端：缩小内容区边距。 */
+@media (max-width: 767px) {
+  .dashboard-layout__content {
+    padding: 16px 12px;
+  }
+}

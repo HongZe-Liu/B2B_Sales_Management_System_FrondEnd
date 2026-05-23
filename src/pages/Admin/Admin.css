@@ -1,0 +1,33 @@
+.admin-metric-card .ant-card-body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 16px;
+  min-height: 128px;
+}
+
+.admin-metric-card__icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 8px;
+  background: #f3f4f6;
+  font-size: 20px;
+}
+
+.admin-metric-card__icon--users {
+  color: #1677ff;
+}
+
+.admin-metric-card__icon--sent {
+  color: #16a34a;
+}
+
+.admin-metric-card__icon--failed {
+  color: #dc2626;
+}
+
+.admin-time-icon {
+  color: #6b7280;
+}

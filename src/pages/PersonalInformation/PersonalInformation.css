@@ -1,0 +1,19 @@
+/* 跟进客户行：提示可以点击查看详情。 */
+.personal-follow-up__row {
+  cursor: pointer;
+}
+
+.personal-follow-up__row:hover td {
+  background: #f8fbf2;
+}
+
+/* 报价单号按钮：保持表格文字对齐，不额外撑高行。 */
+.personal-follow-up__quote-button {
+  height: auto;
+  padding: 0;
+  font-size: inherit;
+}
+
+.personal-follow-up__alert {
+  margin-bottom: 16px;
+}

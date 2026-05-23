@@ -1,0 +1,117 @@
+/* 订单计算页：左侧输入，右侧报价结果。 */
+.order-calculation {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.95fr) minmax(480px, 1.2fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* 页面右上角规则版本。 */
+.order-calculation__rule-tag {
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #2f6f63;
+  background: #eef8f3;
+  border-color: #cfe7dc;
+}
+
+/* 输入卡片和结果卡片：保持后台卡片风格一致。 */
+.order-calculation__input-card,
+.order-calculation__result-card {
+  border-radius: 8px;
+}
+
+/* 表单分组：对应客户表单里的 Contact / Shipping / Cargo 等步骤。 */
+.order-calculation__field-group {
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #edf0e7;
+}
+
+.order-calculation__field-group:last-of-type {
+  border-bottom: 0;
+}
+
+/* 表单网格：电脑两列，长文本占整行。 */
+.order-calculation__form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+  margin-top: 14px;
+}
+
+.order-calculation__form-item--full {
+  grid-column: 1 / -1;
+}
+
+.order-calculation__full-width {
+  width: 100%;
+}
+
+/* 报价头部：总价和摘要标签。 */
+.order-calculation__quote-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+.order-calculation__quote-label {
+  color: #6b7280;
+}
+
+.order-calculation__quote-total {
+  margin-top: 8px;
+  color: #1f3f3b;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.order-calculation__summary-tag {
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #2f6f63;
+  background: #eef8f3;
+  border-color: #cfe7dc;
+}
+
+/* 报价底部摘要：有效期、报价号、匹配状态。 */
+.order-calculation__summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.order-calculation__request-summary {
+  margin-top: 18px;
+}
+
+.order-calculation__result-actions {
+  margin-top: 18px;
+}
+
+/* 中等屏幕：左右布局改成上下排列。 */
+@media (max-width: 1200px) {
+  .order-calculation {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 手机端：表单和摘要都改成单列。 */
+@media (max-width: 767px) {
+  .order-calculation__form-grid,
+  .order-calculation__summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-calculation__quote-header {
+    flex-direction: column;
+  }
+
+  .order-calculation__quote-total {
+    font-size: 34px;
+  }
+}

@@ -1,0 +1,206 @@
+/* Public form page: mobile-first shell with a comfortable desktop width. */
+.customer-form-page {
+    min-height: 100vh;
+    padding: 32px 16px;
+    background: #f5f7fb;
+}
+
+.customer-form-card {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.customer-form-card .ant-card-head {
+    min-height: 56px;
+    padding: 0 24px;
+}
+
+.customer-form-card .ant-card-head-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.customer-form-card .ant-card-body {
+    padding: 24px;
+}
+
+.customer-form-card .ant-form-item {
+    margin-bottom: 18px;
+}
+
+.customer-form-card .ant-form-item-label > label {
+    min-height: 22px;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.customer-form-card .ant-input,
+.customer-form-card .ant-input-number,
+.customer-form-card .ant-picker,
+.customer-form-card .ant-select-selector {
+    min-height: 44px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.customer-form-card .ant-input,
+.customer-form-card .ant-picker-input > input,
+.customer-form-card .ant-select-selection-item,
+.customer-form-card .ant-select-selection-placeholder,
+.customer-form-card .ant-input-number-input {
+    font-size: 16px;
+}
+
+.customer-form-card .ant-input-number {
+    width: 100%;
+}
+
+.customer-form-card .ant-input-number-input,
+.customer-form-card .ant-picker-input > input {
+    min-height: 42px;
+}
+
+.customer-form-card textarea.ant-input {
+    min-height: 112px;
+    line-height: 1.55;
+}
+
+.customer-form-card .ant-radio-wrapper {
+    min-height: 36px;
+    align-items: center;
+    font-size: 16px;
+}
+
+.customer-form-card .ant-pro-steps-form-steps-container {
+    max-width: 100% !important;
+    margin: 0 auto 24px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.customer-form-card .ant-pro-steps-form-steps-container .ant-steps {
+    min-width: 560px;
+}
+
+.customer-form-card .ant-steps-item-content,
+.customer-form-card .ant-steps-item-title,
+.customer-form-card .ant-steps-item-subtitle,
+.customer-form-card .ant-steps-item-description {
+    display: none !important;
+}
+
+.customer-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.customer-form-actions__button {
+    min-width: 132px;
+    height: 44px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.customer-form-card--result .ant-result {
+    padding: 24px 16px;
+}
+
+@media (max-width: 767px) {
+    .customer-form-page {
+        padding: 0;
+        background: #ffffff;
+    }
+
+    .customer-form-card {
+        min-height: 100vh;
+        border: 0;
+        border-radius: 0;
+    }
+
+    .customer-form-card .ant-card-head {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        min-height: 52px;
+        padding: 0 16px;
+        background: #ffffff;
+    }
+
+    .customer-form-card .ant-card-head-title {
+        font-size: 18px;
+    }
+
+    .customer-form-card .ant-card-body {
+        padding: 18px 16px 24px;
+    }
+
+    .customer-form-card .ant-pro-steps-form-steps-container {
+        margin-bottom: 18px;
+        overflow-x: visible;
+    }
+
+    .customer-form-card .ant-pro-steps-form-steps-container .ant-steps {
+        display: flex;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .customer-form-card .ant-steps-item {
+        flex: 1 1 0;
+        min-width: 0;
+        padding-inline-start: 0;
+    }
+
+    .customer-form-card .ant-steps-item-container {
+        display: grid;
+        justify-items: center;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    .customer-form-card .ant-steps-item-icon {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        font-size: 11px;
+        line-height: 18px;
+    }
+
+    .customer-form-card .ant-steps-icon {
+        font-size: 11px;
+        line-height: 18px;
+    }
+
+    .customer-form-card .ant-steps-item-tail {
+        display: none !important;
+    }
+
+    .customer-form-card .ant-pro-steps-form-container > .ant-space {
+        display: block;
+        position: sticky;
+        bottom: 0;
+        z-index: 4;
+        margin: 0 -16px -24px;
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+        background: #ffffff;
+        border-top: 1px solid #eef0f3;
+    }
+
+    .customer-form-card .ant-pro-steps-form-container > .ant-space > .ant-space-item {
+        width: 100%;
+    }
+
+    .customer-form-actions {
+        flex-direction: column-reverse;
+        gap: 10px;
+        margin-top: 0;
+    }
+
+    .customer-form-actions__button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,9 @@
+/* 图表卡片：统一控制图表区域的留白和最小高度。 */
+.data-analysis-chart-card {
+  min-height: 400px;
+}
+
+/* 图表容器：避免图表在窄屏中被压得过低。 */
+.data-analysis-chart-card canvas {
+  max-width: 100%;
+}

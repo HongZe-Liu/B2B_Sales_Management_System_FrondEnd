@@ -1,0 +1,216 @@
+/* 页面容器：控制标题区、指标区和表格区之间的距离。 */
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 页面头部：控制标题说明和按钮区域。 */
+.dashboard-page__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dashboard-page__title {
+  margin: 0 0 4px;
+}
+
+.dashboard-page__description {
+  color: #6b7280;
+}
+
+.dashboard-page__actions {
+  justify-content: flex-end;
+}
+
+/* 首页指标：电脑一行三个卡片，手机自动变一列。 */
+.dashboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* 指标卡片：控制卡片圆角。 */
+.metric-card {
+  border-radius: 8px;
+}
+
+/* 指标卡片顶部：左侧标题，右侧图标。 */
+.metric-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.metric-card__label {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.metric-card__icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #1677ff;
+}
+
+.metric-card__extra {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.metric-card--green .metric-card__icon {
+  color: #16a34a;
+}
+
+.metric-card--gold .metric-card__icon {
+  color: #d97706;
+}
+
+.metric-card--red .metric-card__icon {
+  color: #dc2626;
+}
+
+/* 表格卡片：控制列表区域圆角。 */
+.dashboard-section {
+  border-radius: 8px;
+}
+
+/* 表格工具栏：控制筛选器和表格之间的距离。 */
+.dashboard-table-toolbar {
+  margin-bottom: 16px;
+}
+
+.dashboard-table-toolbar__select {
+  min-width: 160px;
+}
+
+.dashboard-table-toolbar__search {
+  width: 280px;
+}
+
+/* 表格行：提示用户可以点击查看详情。 */
+.quotation-table__row {
+  cursor: pointer;
+}
+
+.quotation-table__row:hover td {
+  background: #f8fbf2;
+}
+
+.quotation-table__detail-button {
+  height: auto;
+  padding: 0;
+  font-size: inherit;
+}
+
+.quotation-table__ownership {
+  display: grid;
+  gap: 2px;
+}
+
+/* 详情抽屉：控制备注段落的留白。 */
+.request-detail-drawer .ant-descriptions-item-label {
+  width: 150px;
+}
+
+.request-detail-drawer__remark p {
+  margin: 8px 0 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.request-detail-drawer__action-row {
+  width: 100%;
+}
+
+.request-detail-drawer__status-select {
+  min-width: 180px;
+}
+
+.request-detail-drawer__status-message {
+  width: min(100%, 280px);
+}
+
+.request-detail-drawer__note-input {
+  margin: 10px 0;
+}
+
+.request-detail-drawer__timeline {
+  margin-top: 14px;
+}
+
+.request-detail-drawer__edit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+}
+
+.request-detail-drawer__edit-item--full {
+  grid-column: 1 / -1;
+}
+
+.request-detail-drawer__full-width {
+  width: 100%;
+}
+
+.quotation-form-qr {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: 16px 0 8px;
+  text-align: center;
+}
+
+.quotation-form-qr__origin-input {
+  width: 100%;
+}
+
+.quotation-form-qr__link {
+  max-width: 100%;
+  word-break: break-all;
+}
+
+/* 小屏幕：指标卡片改为一列竖排。 */
+@media (max-width: 900px) {
+  .dashboard-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 手机端：标题按钮上下排列，筛选器占满一行。 */
+@media (max-width: 767px) {
+  .dashboard-page__header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dashboard-page__actions {
+    justify-content: flex-start;
+  }
+
+  .dashboard-table-toolbar__select {
+    width: 100%;
+  }
+
+  .dashboard-table-toolbar__search,
+  .request-detail-drawer__status-message {
+    width: 100%;
+  }
+
+  .request-detail-drawer__edit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-metrics {
+    grid-template-columns: 1fr;
+  }
+}

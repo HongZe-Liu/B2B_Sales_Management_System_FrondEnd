@@ -1,0 +1,82 @@
+/* 页面布局：控制登录区域在白色页面中居中。 */
+.login-shell {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* 表单宽度：控制整个登录表单的宽度。 */
+.login-form-wrapper {
+  width: min(100%, 500px);
+  background: #ffffff;
+}
+
+/* Logo：控制图片大小和到标题的距离。 */
+.login-logo {
+  display: block;
+  width: 350px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ProComponents 容器：去掉组件默认多余间距。 */
+.login-form-wrapper .ant-pro-form-login-container {
+  height: auto;
+  padding: 0;
+  overflow: visible;
+}
+
+/* 头部间距：控制标题区域到输入框的距离。 */
+.login-form-wrapper .ant-pro-form-login-top {
+  margin-bottom: 20px;
+}
+
+/* 头部行高：避免标题区域重叠。 */
+.login-form-wrapper .ant-pro-form-login-header {
+  height: auto;
+  line-height: 1.2;
+}
+
+/* 标题：控制标题大小和换行。 */
+.login-form-wrapper .ant-pro-form-login-title {
+  display: block;
+  max-width: 100%;
+  font-size: 30px;
+  line-height: 1;
+  white-space: normal;
+}
+
+/* 表单主体：让输入框宽度跟外层保持一致。 */
+.login-form-wrapper .ant-pro-form-login-main {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* 表单项间距：控制输入框之间的距离。 */
+.login-form-wrapper .ant-form-item {
+  margin-bottom: 16px;
+}
+
+/* 文字大小：控制输入框和按钮文字大小。 */
+.login-form-wrapper .ant-input,
+.login-form-wrapper .ant-input-affix-wrapper,
+.login-form-wrapper .ant-btn {
+  font-size: 15px;
+}
+
+/* 控件高度：控制输入框和按钮高度。 */
+.login-form-wrapper .ant-input-affix-wrapper,
+.login-form-wrapper .ant-btn {
+  min-height: 48px;
+}
+
+/* 输入框图标：控制输入框内图标颜色。 */
+.prefixIcon {
+  color: rgba(0, 0, 0, 0.35);
+}
