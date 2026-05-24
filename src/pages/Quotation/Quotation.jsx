@@ -91,12 +91,12 @@ function getInitialPublicFormOrigin() {
   const configuredOrigin = getConfiguredPublicFormOrigin()
   const storedOrigin = localStorage.getItem(PUBLIC_FORM_ORIGIN_KEY)
 
-  if (configuredOrigin) {
-    return configuredOrigin
-  }
-
   if (storedOrigin) {
     return storedOrigin
+  }
+
+  if (configuredOrigin) {
+    return configuredOrigin
   }
 
   return window.location.origin

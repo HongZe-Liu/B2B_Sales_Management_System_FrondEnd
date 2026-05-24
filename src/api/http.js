@@ -1,4 +1,5 @@
 export const ACCESS_TOKEN_KEYS = ['accessToken', 'smAccessToken', 'sm_access_token']
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/+$/, '')
 let unauthorizedHandler = null
 
 export function setUnauthorizedHandler(handler) {
@@ -27,7 +28,16 @@ function buildUrl(path, query) {
   })
 
   const queryString = params.toString()
-  return queryString ? `${path}?${queryString}` : path
+  const isAbsoluteUrl = /^https?:\/\//i.test(path)
+  const url = isAbsoluteUrl
+    ? path
+    : `${API_BASE_URL}${path.startsWith('/') ? path : `/${path}`}`
+
+  if (!queryString) {
+    return url
+  }
+
+  return `${url}${url.includes('?') ? '&' : '?'}${queryString}`
 }
 
 async function parseResponse(response) {
