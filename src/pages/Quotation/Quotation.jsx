@@ -44,6 +44,7 @@ const DEFAULT_PAGINATION = {
 const CONFIGURED_PUBLIC_FORM_ORIGIN = import.meta.env.VITE_PUBLIC_FORM_ORIGIN
 const PUBLIC_FORM_ORIGIN_KEY = 'publicFormOrigin'
 const PUBLIC_FORM_PATH = '/#/form-collection'
+const DASHBOARD_LOGIN_PATH = '/#/login'
 
 function formatDateTime(value) {
   return value ? value.replace('T', ' ').slice(0, 16) : '-'
@@ -73,6 +74,10 @@ function normalizeOrigin(value) {
 
 function buildPublicFormUrl(origin) {
   return `${origin}${PUBLIC_FORM_PATH}`
+}
+
+function buildDashboardLoginUrl(origin) {
+  return `${origin}${DASHBOARD_LOGIN_PATH}`
 }
 
 function getConfiguredPublicFormOrigin() {
@@ -184,6 +189,10 @@ function Quotation() {
     () => buildPublicFormUrl(publicFormOrigin),
     [publicFormOrigin],
   )
+  const dashboardLoginUrl = useMemo(
+    () => buildDashboardLoginUrl(publicFormOrigin),
+    [publicFormOrigin],
+  )
   const cards = summary?.cards || {}
   const statusCounts = cards.statusCounts || {}
 
@@ -265,6 +274,11 @@ function Quotation() {
     message.success('Form link copied')
   }
 
+  const handleCopyDashboardLoginUrl = async () => {
+    await navigator.clipboard.writeText(dashboardLoginUrl)
+    message.success('Dashboard login link copied')
+  }
+
   const handleSavePublicFormOrigin = () => {
     try {
       const nextOrigin = normalizeOrigin(publicFormOriginDraft)
@@ -310,7 +324,7 @@ function Quotation() {
               icon={<QrcodeOutlined />}
               onClick={() => setQrModalOpen(true)}
             >
-              Form QR Code
+              QR Codes
             </Button>
             <Button
               icon={<PlusOutlined />}
@@ -422,8 +436,11 @@ function Quotation() {
 
         <Modal
           footer={[
-            <Button key="copy" onClick={handleCopyPublicFormUrl}>
-              Copy Link
+            <Button key="copy-form" onClick={handleCopyPublicFormUrl}>
+              Copy Form Link
+            </Button>,
+            <Button key="copy-login" onClick={handleCopyDashboardLoginUrl}>
+              Copy Login Link
             </Button>,
             <Button key="save" onClick={handleSavePublicFormOrigin}>
               Update QR Code
@@ -437,7 +454,7 @@ function Quotation() {
             </Button>,
           ]}
           open={qrModalOpen}
-          title="Customer Form QR Code"
+          title="QR Codes"
           onCancel={() => setQrModalOpen(false)}
         >
           <div className="quotation-form-qr">
@@ -448,7 +465,22 @@ function Quotation() {
                 type="warning"
               />
             ) : null}
-            <QRCode size={220} value={publicFormUrl} />
+            <div className="quotation-form-qr__codes">
+              <div className="quotation-form-qr__code">
+                <Text strong>Customer Form</Text>
+                <QRCode size={200} value={publicFormUrl} />
+                <Text className="quotation-form-qr__link" copyable>
+                  {publicFormUrl}
+                </Text>
+              </div>
+              <div className="quotation-form-qr__code">
+                <Text strong>Dashboard Login</Text>
+                <QRCode size={200} value={dashboardLoginUrl} />
+                <Text className="quotation-form-qr__link" copyable>
+                  {dashboardLoginUrl}
+                </Text>
+              </div>
+            </div>
             <Input
               addonAfter={PUBLIC_FORM_PATH}
               className="quotation-form-qr__origin-input"
@@ -456,9 +488,6 @@ function Quotation() {
               placeholder="http://192.168.1.25:5173"
               value={publicFormOriginDraft}
             />
-            <Text className="quotation-form-qr__link" copyable>
-              {publicFormUrl}
-            </Text>
             <Button type="link" onClick={handleResetPublicFormOrigin}>
               Use current browser address
             </Button>
